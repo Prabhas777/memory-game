@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Memory Match Game</title>
+		<link rel="stylesheet" href="style.css" />
+		<script
+			src="https://code.jquery.com/jquery-3.6.1.min.js"
+			integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<div class="loading">
+			<img src="loading.svg" alt="Loading" />
+			<h4>Loading...</h4>
+		</div>
+		<div class="highscore">Highscore : <span id="highscore">0</span></div>
+		<div class="timer">00:00</div>
+		<h1>Memory Match Game</h1>
+		<div class="cards">
+			<div class="card hidden" data-pokemon="">
+				<div class="card-front">
+					<img src="./pokeball.png" alt="Poke Ball" />
+				</div>
+				<div class="card-back">
+					<p class="poke-title"></p>
+					<img class="poke-img" src="" alt="" />
+				</div>
+			</div>
+		</div>
+		<button class="reset-button" onclick="startOrReset()">Reset Game</button>
+		<div class="canvas-holder">
+			<!-- <button class="reset-button" onclick="startOrReset()">Play Again</button> -->
+			<canvas id="my-confetti"> </canvas>
+		</div>
+		<script src="confetti.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

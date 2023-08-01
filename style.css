@@ -1,0 +1,181 @@
+@font-face {
+	font-family: pokemonFont;
+	src: url(Pokemon\ Solid.ttf);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #ffdc00;
+	font-family: pokemonFont;
+	letter-spacing: 5px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	transition: background-color 10s ease;
+}
+
+h1 {
+	margin-bottom: 1rem;
+}
+
+.loading {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #fff;
+	z-index: 10;
+}
+
+.loading img {
+	width: 8%;
+}
+
+.loading h4 {
+	margin-top: 1rem;
+	font-size: 1.2rem;
+}
+
+.cards {
+	display: grid;
+	max-width: 90vh;
+	max-height: 90vh;
+	width: 550px;
+	height: 550px;
+	grid-template-columns: repeat(4, 1fr);
+	row-gap: 1rem;
+	column-gap: 1rem;
+}
+
+.card {
+	padding: 1rem;
+	position: relative;
+	perspective: 400px;
+	transform-style: preserve-3d;
+	cursor: pointer;
+}
+
+.card .card-front,
+.card .card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	backface-visibility: hidden;
+	transition: transform 1s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card.rotated .card-front {
+	transform: rotateY(180deg);
+}
+.card.rotated .card-back {
+	transform: rotateY(0deg);
+}
+
+.card .card-front {
+	background-color: #000;
+}
+
+.card .card-back {
+	background-color: #fff;
+	transform: rotateY(-180deg);
+	flex-direction: column;
+}
+
+.card .card-back p {
+	font-size: 10px;
+	line-height: 12px;
+	text-align: center;
+}
+
+.card .card-front img {
+	width: 75%;
+}
+
+.card .card-back img {
+	width: 96px;
+}
+
+.card.hidden {
+	display: none;
+}
+
+.reset-button {
+	margin: 2rem 0;
+	cursor: pointer;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 15px 30px;
+	font-size: 1rem;
+	background-color: #dc3545 !important;
+}
+
+.reset-button.start {
+	background-color: #28a745 !important;
+}
+
+.canvas-holder {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	/* background-color: #fff; */
+	z-index: 5;
+	pointer-events: none;
+}
+
+.canvas-holder canvas {
+	width: 100%;
+	height: 100%;
+}
+
+.canvas-holder button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.timer {
+	position: fixed;
+	top: 2rem;
+	right: 2rem;
+	overflow: hidden;
+	line-height: 1.25;
+}
+
+.highscore {
+	position: fixed;
+	top: 2rem;
+	left: 2rem;
+	overflow: hidden;
+	line-height: 1.25;
+}
+
+.timer span {
+	display: inline-block;
+	transition: transform 0.25s ease;
+}
+
+.timer span.done {
+	transform: translateY(-105%);
+}
